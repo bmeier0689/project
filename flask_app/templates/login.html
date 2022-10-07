@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Login</title>
+</head>
+<body>
+    <div class="container d-flex justify-content-between">
+        <h1>Obake Sushi</h1>
+        <a href="/">Not a sushi monster? Become one here!</a>
+    </div>
+    <div class="container">
+        <h3 class="text-center">Okaerinasai</h3>
+        <h3 class="text-center">(Welcome Back!)</h3>
+        <form action="/login" method="POST" class="form-group">
+            <div class="container col-7 my-5 mx-auto d-flex justify-content-center">
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" name="email">
+                    <div>
+                        <label for="password">Password:</label>
+                        <input type="password" name="password">
+                    </div>
+                    <input type="submit" value="Welcome back, Sushi Monster!" class="btn">
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

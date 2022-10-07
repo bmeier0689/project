@@ -6,11 +6,15 @@ bcrypt = Bcrypt(app)
 
 @app.route('/')
 def index():
+    return redirect('/register_page')
+
+@app.route('/register_page')
+def register_page():
     return render_template('index.html')
 
 @app.route('/register', methods=['POST'])
 def register():
-    if not user_model.User.validate(request.form):
+    if not user_model.User.validate_user(request.form):
         return redirect('/')
     data = {
         'first_name': request.form['fname'],
@@ -24,8 +28,12 @@ def register():
     session['user_id'] = user_model.User.save(data)
     return redirect('/home')
 
-@app.route('/login', methods=['POST'])
+@app.route('/login')
 def login():
+    return render_template('login.html')
+
+@app.route('/login_user', methods=['POST'])
+def login_user():
     user = user_model.User.check_email(request.form['email'])
     if user == False:
         flash("Please enter a valid email address and password", "login")
