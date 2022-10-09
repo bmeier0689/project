@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Checkout</title>
+</head>
+<body>
+    <div class="container d-flex justify-content-between">
+        <h1>Obake Sushi</h1>
+        <div class="topnav">
+            <a href="/home" class="active">Home</a> |
+            <a href="/order">Order</a> |
+            <a href="/account">Account</a> | 
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+    <div class="container col-3 my-5 mx-auto">
+        <h3>Order Confirmation</h3>
+        <div class="container">
+            <p>Method:</p> 
+            <p>Items:</p>
+            <!-- jinja item display syntax here -->
+        </div>
+        <hr>
+        <div class="container d-flex justify-content-end">
+            <h3>Total</h3>
+            <!-- jijna price display here -->
+        </div>
+        <div class="container d-flex justify-content-between">
+            <button class="btn" onclick="">Cancel Order</button>
+            <button class="btn" onclick="">Submit Order</button>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Order</title>
+</head>
+<body>
+    <div class="container d-flex justify-content-between">
+        <h1>Obake Sushi</h1>
+        <div class="topnav">
+            <a href="/home" class="active">Home</a> |
+            <a href="/order">Order</a> |
+            <a href="/account">Account</a> | 
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+    <div class="container text-center">
+        <h3>Let's Make Some Sushi!</h3>
+        <div class="container">
+            <form action="/new_order" method="post">
+                <div>
+                    <label for="method">Method:</label>
+                    <select name="method" id="method">
+                        <option value="eat-in">Eat In Store</option>
+                        <option value="pickup">Pick-Up</option>
+                        <option value="delivery">Delivery</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="fish">Choice of Fish:</label>
+                    <select name="fish" id="fish">
+                        <option value="fatty tuna">Fatty Tuna</option>
+                        <option value="tuna">Tuna</option>
+                        <option value="salmon">Salmon</option>
+                        <option value="salmon w/ avo">Salmon w/ Avocado</option>
+                        <option value="Shrimp">Shrimp</option>
+                        <option value="shrimp tempura">Shrimp Tempura</option>
+                        <option value="squid">Squid</option>
+                        <option value="yellowtail">Yellowtail</option>
+                    </select>
+                    <label for="rice">Rice:</label>
+                    <select name="rice" id="rice">
+                        <option value="full">Full</option>
+                        <option value="half">Half</option>
+                    </select>
+                    <input type="radio" name="wasabi" id="yes" value="Yes">
+                    <label for="wasabi">Wasabi</label>
+                    <label for="qty">Quantity:</label>
+                    <input type="text" name="quantity">
+                </div>
+                <div>
+                    <label for="fish">Choice of Fish:</label>
+                    <select name="fish" id="fish">
+                        <option value="fatty tuna">Fatty Tuna</option>
+                        <option value="tuna">Tuna</option>
+                        <option value="salmon">Salmon</option>
+                        <option value="salmon w/ avo">Salmon w/ Avocado</option>
+                        <option value="Shrimp">Shrimp</option>
+                        <option value="shrimp tempura">Shrimp Tempura</option>
+                        <option value="squid">Squid</option>
+                        <option value="yellowtail">Yellowtail</option>
+                    </select>
+                    <label for="rice">Rice:</label>
+                    <select name="rice" id="rice">
+                        <option value="full">Full</option>
+                        <option value="half">Half</option>
+                    </select>
+                    <input type="radio" name="wasabi" id="yes" value="Yes">
+                    <label for="wasabi">Wasabi</label>
+                    <label for="qty">Quantity:</label>
+                    <input type="text" name="quantity">
+                </div>
+                <div>
+                    <label for="fish">Choice of Fish:</label>
+                    <select name="fish" id="fish">
+                        <option value="fatty tuna">Fatty Tuna</option>
+                        <option value="tuna">Tuna</option>
+                        <option value="salmon">Salmon</option>
+                        <option value="salmon w/ avo">Salmon w/ Avocado</option>
+                        <option value="Shrimp">Shrimp</option>
+                        <option value="shrimp tempura">Shrimp Tempura</option>
+                        <option value="squid">Squid</option>
+                        <option value="yellowtail">Yellowtail</option>
+                    </select>
+                    <label for="rice">Rice:</label>
+                    <select name="rice" id="rice">
+                        <option value="full">Full</option>
+                        <option value="half">Half</option>
+                    </select>
+                    <input type="radio" name="wasabi" id="yes" value="Yes">
+                    <label for="wasabi">Wasabi</label>
+                    <label for="qty">Quantity:</label>
+                    <input type="text" name="quantity">
+                </div>
+                <input type="submit" value="Order Sushi" class="btn" onclick="">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
