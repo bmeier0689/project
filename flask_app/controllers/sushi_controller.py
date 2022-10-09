@@ -17,8 +17,8 @@ def register():
     if not user_model.User.validate_user(request.form):
         return redirect('/')
     data = {
-        'first_name': request.form['fname'],
-        'last_name': request.form['lname'],
+        'first_name': request.form['first_name'],
+        'last_name': request.form['last_name'],
         'email': request.form['email'],
         'address': request.form['address'],
         'city': request.form['city'],
@@ -71,7 +71,20 @@ def checkout():
     if 'user_id' in session:
         return render_template('checkout.html')
 
-@app.route('/account')
-def account():
+@app.route('/account/<int:id>')
+def account(id):
     if 'user_id' in session:
-        return render_template('account.html')
+        return render_template('account.html', user = user_model.User.get_by_id(id))
+
+@app.route('/edit_account', methods=['POST'])
+def edit_account():
+    if not user_model.User.validate_user(request.form):
+        return redirect(request.referrer)
+    print(request.form)
+    user_model.User.update_user(request.form)
+    return redirect('/account')
+    
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect('login')

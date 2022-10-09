@@ -13,7 +13,7 @@ class User:
         self.id = data['id']
         self.first_name = data['first_name']
         self.last_name = data['last_name']
-        self.address = data['addresss']
+        self.address = data['address']
         self.city = data['city']
         self.state = data['state']
         self.email = data['email']
@@ -67,6 +67,12 @@ class User:
             }
             user.orders.append(Order(order_data))
         return user
+    
+    @classmethod
+    def update_user(cls, data):
+        query = "UPDATE user SET first_name = %(first_name)s, last_name = %(last_name)s, email = %(email)s,\
+        address = %(address)s, city = %(city)s, state = %(state)s WHERE id = %(user_id)s;"
+        return connectToMySQL(db).query_db(query, data)
 
     @staticmethod
     def validate_user(user):
