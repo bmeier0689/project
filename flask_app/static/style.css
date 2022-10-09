@@ -1,0 +1,17 @@
+body {
+    background-color: #3a3d42;
+    color: whitesmoke;
+}
+h1 {
+    color: #afd77f;
+}
+#header {
+    align-items: center;
+    font-weight: 600;
+}
+h3 {
+    color: #ff91a4;
+}
+.btn {
+    background-color: #afd77f;
+}
