@@ -1,7 +1,6 @@
 from flask import flash
 import re
-from final_project.flask_app.config.mysqlconnection import connectToMySQL
-from flask_app.config.mysqlconnection import MySQLConnection
+from flask_app.config.mysqlconnection import connectToMySQL
 from flask_app.models.order_model import Order
 
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
@@ -49,7 +48,8 @@ class User:
     @classmethod
     def get_one_user(cls, data):
         query = "SELECT * FROM users WHERE id = %(id)s;"
-        return connectToMySQL(db).query_db(query, data)
+        results = connectToMySQL(db).query_db(query, data)
+        return cls(results[0])
 
     @classmethod
     def update_user(cls, data):
@@ -83,5 +83,15 @@ class User:
             is_valid = False
         if user['password'] != user['confirm_pass']:
             flash("Passwords must be the same", "register")
+            is_valid = False
+        return is_valid
+
+    @staticmethod
+    def validate_user_update(user):
+        is_valid = True
+        query = "SELECT * FROM users WHERE email = %(email)s;"
+        results = connectToMySQL(db).query_db(query, user)
+        if not NAME_REGEX.match(user['first_name']):
+            flash("First name must be at least 2 characters and contain only letters", "update")
             is_valid = False
         return is_valid
