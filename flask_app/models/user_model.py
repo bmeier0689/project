@@ -1,6 +1,7 @@
 from flask import flash
 import re
-from flask_app.config.mysqlconnection import connectToMySQL
+from final_project.flask_app.config.mysqlconnection import connectToMySQL
+from flask_app.config.mysqlconnection import MySQLConnection
 from flask_app.models.order_model import Order
 
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
@@ -18,6 +19,8 @@ class User:
         self.state = data['state']
         self.email = data['email']
         self.password = data['password']
+        self.created_at = data['created_at']
+        self.updated_at = data['updated_at']
         self.orders = []
 
     @classmethod
@@ -28,10 +31,11 @@ class User:
         for user in results:
             users.append(cls(user))
         return users
-    
+
     @classmethod
     def save(cls, data):
-        query = "INSERT INTO users (first_name, last_name, address, city, state, email, password) VALUES ( %(first_name)s, %(last_name)s, %(address)s, %(city)s, %(state)s, %(email)s, %(password)s );"
+        query = "INSERT INTO users (first_name, last_name, address, city, state, email, password) \
+        VALUES ( %(first_name)s, %(last_name)s, %(address)s, %(city)s, %(state)s, %(email)s, %(password)s );"
         return connectToMySQL(db).query_db(query, data)
 
     @classmethod
@@ -43,35 +47,14 @@ class User:
         return cls(results[0])
 
     @classmethod
-    def get_by_id(cls,data):
+    def get_one_user(cls, data):
         query = "SELECT * FROM users WHERE id = %(id)s;"
-        results = connectToMySQL(db).query_db(query, data)
-        return cls(results[0])
+        return connectToMySQL(db).query_db(query, data)
 
     @classmethod
-    def get_user_with_order(cls, data):
-        query = "SELECT * FROM users LEFT JOIN orders on orders.user_id = users.id WHERE users.id = %(id)s;"
-        results = connectToMySQL(db).query_db(query, data)
-        user = cls(results[0])
-        for row in results:
-            order_data = {
-                "id": row['id'],
-                "method": row['method'],
-                "fish": row['fish'],
-                "rice": row['rice'],
-                "wasabi": row['wasabi'],
-                "price": row['price'],
-                "quantity": row['quantity'],
-                "created_at": row['created_at'],
-                "updated_at": row['updated_at'],
-            }
-            user.orders.append(Order(order_data))
-        return user
-    
-    @classmethod
     def update_user(cls, data):
-        query = "UPDATE user SET first_name = %(first_name)s, last_name = %(last_name)s, email = %(email)s,\
-        address = %(address)s, city = %(city)s, state = %(state)s WHERE id = %(user_id)s;"
+        query = "UPDATE users SET first_name = %(first_name)s, last_name = %(last_name)s, address = %(address)s, \
+        city = %(city)s, state = %(state)s, email = %(email)s WHERE id = %(id)s;"
         return connectToMySQL(db).query_db(query, data)
 
     @staticmethod
@@ -80,10 +63,9 @@ class User:
         query = "SELECT * FROM users WHERE email = %(email)s;"
         results = connectToMySQL(db).query_db(query, user)
         if len(results) >= 1:
-            flash("Email is already in use. Please login or register a new email address.", "register")
+            flash("Email is already in use. Please login or register a new email address", "register")
             is_valid = False
-        if len(user['first_name']) == 0 or len(user['last_name']) == 0 or len(['email']) == 0 or len(user['password']) == 0 \
-        or len(user['address']) == 0 or len(user['city']) == 0 or len(user['state']) == 0:
+        if len(user['first_name']) == 0 or len(user['last_name']) == 0 or len(['email']) == 0 or len(user['password']) == 0:
             flash("All fields required", "register")
             is_valid = False
             return is_valid

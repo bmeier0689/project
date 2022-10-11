@@ -17,6 +17,13 @@
     <div class="container">
         <h3 class="text-center">Okaerinasai</h3>
         <h3 class="text-center">(Welcome Back!)</h3>
+        {% with messages = get_flashed_messages(category_filter=['login']) %}
+        {% if messages %}
+            {% for message in messages %}
+                <p class="text-center">{{message}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
         <form action="/login_user" method="POST" class="form-group">
             <div class="container col-7 my-5 mx-auto d-flex justify-content-center">
                 <div>

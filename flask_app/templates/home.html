@@ -16,7 +16,7 @@
         <div class="topnav">
             <a href="/home" class="active">Home</a> |
             <a href="/order">Order</a> |
-            <a href="/account">Account</a> | 
+            <a href="/account/{{user.id}}">Account</a> | 
             <a href="/logout">Logout</a>
         </div>
     </div>
@@ -26,7 +26,7 @@
             <p>Click here to pick from among your favorite seafood choices to place an order. You can also choose whether you
             would like a full or half serving of rice for each piece and whether you would like wasabi to be added or not.
             </p>
-            <button class="btn" id="new">New Order</button>
+            <button class="btn" onclick="location.assign('/order')">New Order</button>
         </div>
         <div class="container border rounded col-5">
             <p>Having trouble deciding? Click here to place an order based on the chefs daily omakase (recommendation).

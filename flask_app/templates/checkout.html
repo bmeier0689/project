@@ -21,11 +21,15 @@
     </div>
     <div class="container col-3 my-5 mx-auto">
         <h3>Order Confirmation</h3>
+        {% for order in orders %}
         <div class="container">
-            <p>Method:</p> 
-            <p>Items:</p>
-            <!-- jinja item display syntax here -->
+            <p>Method: {{order.method}}</p> 
+            <p>Items:
+            {{order.fish}}
+            {{order.wasabi}}
+            {{order.quantity}}</p>
         </div>
+        {% endfor %}
         <hr>
         <div class="container d-flex justify-content-end">
             <h3>Total</h3>

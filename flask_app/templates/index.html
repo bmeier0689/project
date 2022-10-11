@@ -16,6 +16,13 @@
     </div>
     <div class="container">
         <h3 class="text-center">Monstrously Delicious Sushi</h3>
+        {% with messages = get_flashed_messages(category_filter=['register']) %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p class="text-center">{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
         <form action="/register" method="POST" class="form-group">
             <div class="container col-7 my-5 mx-auto">
                 <div>
