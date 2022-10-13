@@ -72,6 +72,26 @@ def edit_account():
     user_model.User.update_user(request.form)
     return redirect('/account')
 
+@app.route('/order')
+def order():
+    if 'user_id' not in session:
+        return redirect('/logout')
+    return render_template('order.html')
+
+@app.route('/new_order', methods=['POST'])
+def new_order():
+    if not order_model.Order.validate_order(request.form):
+        return redirect('/order')
+    print(request.form)
+    order_model.Order.save(request.form)
+    return redirect('/checkout')
+
+@app.route('/checkout')
+def checkout():
+    if 'user_id' not in session:
+        return redirect('/logout')
+    return render_template('checkout.html')
+
 @app.route('/logout')
 def logout():
     session.clear()

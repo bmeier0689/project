@@ -54,7 +54,7 @@ class User:
     @classmethod
     def update_user(cls, data):
         query = "UPDATE users SET first_name = %(first_name)s, last_name = %(last_name)s, address = %(address)s, \
-        city = %(city)s, state = %(state)s, email = %(email)s WHERE id = %(id)s;"
+        city = %(city)s, state = %(state)s, email = %(email)s WHERE id = %(user_id)s;"
         return connectToMySQL(db).query_db(query, data)
 
     @staticmethod
@@ -65,7 +65,8 @@ class User:
         if len(results) >= 1:
             flash("Email is already in use. Please login or register a new email address", "register")
             is_valid = False
-        if len(user['first_name']) == 0 or len(user['last_name']) == 0 or len(['email']) == 0 or len(user['password']) == 0:
+        if len(user['first_name']) == 0 or len(user['last_name']) == 0 or len(['email']) == 0 or len(user['password']) == 0 \
+        or len(user['address']) == 0 or len(user['city']) == 0:
             flash("All fields required", "register")
             is_valid = False
             return is_valid
@@ -91,6 +92,11 @@ class User:
         is_valid = True
         query = "SELECT * FROM users WHERE email = %(email)s;"
         results = connectToMySQL(db).query_db(query, user)
+        if len(user['first_name']) == 0 or len(user['last_name']) == 0 or len(['email']) == 0 or len(user['address']) == 0 or \
+        len(user['city']) == 0:
+            flash("All fields required", "update")
+            is_valid = False
+            return is_valid
         if not NAME_REGEX.match(user['first_name']):
             flash("First name must be at least 2 characters and contain only letters", "update")
             is_valid = False
