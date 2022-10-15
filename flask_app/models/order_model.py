@@ -45,6 +45,35 @@ class Order:
         return connectToMySQL(db).query_db(query, data)
 
     @classmethod
+    def process_order(cls, form_data):
+        fish = form_data.getlist("fish")
+        rice= form_data.getlist("rice")
+        quantity= form_data.getlist("quantity")
+        wasabi= form_data.getlist("wasabi")
+        for i in range(0,3):
+            order = {
+                'method': form_data['method'],
+                'fish': fish[i],
+                'rice': rice[i],
+                'quantity': quantity[i],
+                'wasabi': wasabi[i] if i<len(wasabi) else "No",
+                'user_id': form_data['user_id']
+            }
+            print(order)
+            cls.save(order)
+
+    @classmethod
+    def checkout(cls, id):
+        query = f"SELECT * FROM orders WHERE user_id = {id} ORDER BY id DESC LIMIT 3;"
+        results =connectToMySQL(db).query_db(query)
+        orders = []
+        for row in results:
+            order = cls(row)
+            orders.append(order)
+        return orders
+
+
+    @classmethod
     def get_one_order(cls, id):
         query = f"SELECT * FROM orders LEFT JOIN users on orders.user_id = users.id WHERE orders.id = {id};"
         results = connectToMySQL(db).query_db(query)
@@ -64,6 +93,11 @@ class Order:
             }
             order.user = user_model.User(user_data)
         return order
+
+    @classmethod
+    def delete(cls, data):
+        query = "DELETE FROM shows WHERE id = %(id)s;"
+        return connectToMySQL(db).query_db(query, data)
 
     @staticmethod
     def validate_order(order):

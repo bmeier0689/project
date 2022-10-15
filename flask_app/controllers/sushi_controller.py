@@ -58,6 +58,8 @@ def home():
 
 @app.route('/account')
 def account():
+    if 'user_id' not in session:
+        return redirect('/logout')
     data = {
         'id': session['user_id']
     }
@@ -82,15 +84,16 @@ def order():
 def new_order():
     if not order_model.Order.validate_order(request.form):
         return redirect('/order')
-    print(request.form)
-    order_model.Order.save(request.form)
+    print(request.form.getlist("fish"))
+    # order_model.Order.save(request.form)
+    order_model.Order.process_order(request.form)
     return redirect('/checkout')
 
 @app.route('/checkout')
 def checkout():
     if 'user_id' not in session:
         return redirect('/logout')
-    return render_template('checkout.html')
+    return render_template('checkout.html', orders = order_model.Order.checkout(session['user_id']))
 
 @app.route('/logout')
 def logout():

@@ -11,8 +11,10 @@
     <title>Order</title>
 </head>
 <body>
-    <div id="header" class="container d-flex justify-content-between my-3 mx-auto">
+    <div id="header" class="container d-flex justify-content-between">
         <h1>Obake Sushi</h1>
+        <img src="/static/images/obake_gunkan.png" class="img" alt="Obake Gunkan" height="150px" width="150px">
+
         <div class="topnav">
             <a href="/home" class="active">Home</a> |
             <a href="/order">Order</a> |
@@ -33,31 +35,73 @@
                         <option value="delivery">Delivery</option>
                     </select>
                 </div>
-                <div class="container">
-                    <label for="quantity">Pieces of Sushi:</label>
-                    <select name="quantity" id="quantity">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
+                <div>
+                    <label for="fish">Choice of Fish:</label>
+                    <select name="fish" id="fish">
+                        <option value="fatty tuna">Fatty Tuna</option>
+                        <option value="tuna">Tuna</option>
+                        <option value="salmon">Salmon</option>
+                        <option value="salmon w/ avo">Salmon w/ Avocado</option>
+                        <option value="Shrimp">Shrimp</option>
+                        <option value="shrimp tempura">Shrimp Tempura</option>
+                        <option value="squid">Squid</option>
+                        <option value="yellowtail">Yellowtail</option>
                     </select>
-                    <label for="rice">Rice Amount:</label>
+                    <label for="rice">Rice:</label>
                     <select name="rice" id="rice">
                         <option value="full">Full</option>
-                        <option value="half">half</option>
+                        <option value="half">Half</option>
                     </select>
-                    <label for="wasabi">Wasabi?</label>
-                    <select name="wasabi" id="wasabi">
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                    </select>
+                    <input type="checkbox" name="wasabi" value="Yes">
+                    <label for="wasabi">Wasabi</label>
+                    <label for="qty">Quantity:</label>
+                    <input type="text" name="quantity">
                 </div>
                 <div>
-                    <label for="fish">Choices:</label>
-                    <input type="radio" name="fish" value="tuna">Tuna
-                    <input type="radio" name="fish" value="salmon">Salmon
-                    <input type="radio" name="fish" value="shrimp">Shrimp
+                    <label for="fish">Choice of Fish:</label>
+                    <select name="fish" id="fish">
+                        <option value="fatty tuna">Fatty Tuna</option>
+                        <option value="tuna">Tuna</option>
+                        <option value="salmon">Salmon</option>
+                        <option value="salmon w/ avo">Salmon w/ Avocado</option>
+                        <option value="Shrimp">Shrimp</option>
+                        <option value="shrimp tempura">Shrimp Tempura</option>
+                        <option value="squid">Squid</option>
+                        <option value="yellowtail">Yellowtail</option>
+                    </select>
+                    <label for="rice">Rice:</label>
+                    <select name="rice" id="rice">
+                        <option value="full">Full</option>
+                        <option value="half">Half</option>
+                    </select>
+                    <input type="checkbox" name="wasabi" value="Yes">
+                    <label for="wasabi">Wasabi</label>
+                    <label for="qty">Quantity:</label>
+                    <input type="text" name="quantity">
                 </div>
-                <input type="submit" value="Order Sushi" class="btn" id="order_submit">
+                <div>
+                    <label for="fish">Choice of Fish:</label>
+                    <select name="fish" id="fish">
+                        <option value="fatty tuna">Fatty Tuna</option>
+                        <option value="tuna">Tuna</option>
+                        <option value="salmon">Salmon</option>
+                        <option value="salmon w/ avo">Salmon w/ Avocado</option>
+                        <option value="Shrimp">Shrimp</option>
+                        <option value="shrimp tempura">Shrimp Tempura</option>
+                        <option value="squid">Squid</option>
+                        <option value="yellowtail">Yellowtail</option>
+                    </select>
+                    <label for="rice">Rice:</label>
+                    <select name="rice" id="rice">
+                        <option value="full">Full</option>
+                        <option value="half">Half</option>
+                    </select>
+                    <input type="checkbox" name="wasabi" value="Yes">
+                    <label for="wasabi">Wasabi</label>
+                    <label for="qty">Quantity:</label>
+                    <input type="text" name="quantity">
+                </div>
+                <input type="submit" value="Order Sushi" class="btn" onclick="">
             </form>
         </div>
     </div>
