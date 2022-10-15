@@ -25,14 +25,12 @@
         {% endif %}
     {% endwith %}
         <form action="/login_user" method="POST" class="form-group">
-            <div class="container col-7 my-5 mx-auto d-flex justify-content-center">
-                <div>
-                    <label for="email">Email:</label>
-                    <input type="email" name="email">
-                    <div>
-                        <label for="password">Password:</label>
-                        <input type="password" name="password">
-                    </div>
+            <div class="container col-5 my-5 mx-auto">
+                <label for="email">Email:</label>
+                <input type="email" name="email" class="form-control">
+                <label for="password">Password:</label>
+                <input type="password" name="password" class="form-control">
+                <div class="container d-flex justify-content-center">
                     <input type="submit" value="Welcome back, Sushi Monster!" class="btn">
                 </div>
             </div>

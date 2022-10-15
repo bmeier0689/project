@@ -14,4 +14,18 @@ h3 {
 }
 .btn {
     background-color: #afd77f;
+    margin-top: 10px;
+}
+.options {
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.order {
+    margin-top: 40px;
+}
+hr {
+    border: 1px solid whitesmoke;
 }

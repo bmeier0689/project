@@ -96,7 +96,7 @@ class Order:
 
     @classmethod
     def delete(cls, data):
-        query = "DELETE FROM shows WHERE id = %(id)s;"
+        query = "DELETE FROM orders WHERE user_id = 1 ORDER BY id DESC LIMIT 3;"
         return connectToMySQL(db).query_db(query, data)
 
     @staticmethod

@@ -20,17 +20,31 @@
             <a href="/logout">Logout</a>
         </div>
     </div>
-    <div class="container col-3 my-5 mx-auto">
-        <h3>Order Confirmation</h3>
-        {% for order in orders %}
+    <div class="container col-5 my-5 mx-auto">
+        <h3 class="text-center">Order Confirmation</h3>
         <div class="container">
-            <p>Method: {{order.method}}</p> 
-            <p>Items:
-            {{order.fish}}
-            {{order.wasabi}}
-            {{order.quantity}}</p>
-        </div>
-        {% endfor %}
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr class="text-center">
+                        <th>Method</th>
+                        <th>Fish</th>
+                        <th>Amount of Rice</th>
+                        <th>Wasabi?</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    {% for order in orders %}
+                    <tr>
+                        <td>{{order.method}}</td>
+                        <td>{{order.fish}}</td>
+                        <td>{{order.rice}}</td>
+                        <td>{{order.wasabi}}</td>
+                        <td>{{order.quantity}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         <hr>
         <div class="container d-flex justify-content-end">
             <h3>Total</h3>
@@ -38,9 +52,8 @@
         </div>
         <div class="container d-flex justify-content-between">
             <button class="btn" onclick="" style="background-color: #ff91a4;">Cancel Order</button>
-            <button class="btn" onclick="">Submit Order</button>
+            <button class="btn" onclick="location.assign('/home')">Submit Order</button>
         </div>
     </div>
-
 </body>
 </html>

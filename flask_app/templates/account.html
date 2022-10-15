@@ -20,7 +20,7 @@
             <a href="/logout">Logout</a>
         </div>
     </div>
-    <div class="container d-flex">
+    <div class="container col-5 mx-auto">
         <div class="container">
             <h3>Account Info</h3>
             <form action="/edit_account" method="POST">
@@ -91,7 +91,9 @@
                         <option value="WY">WY</option>
                     </select>
                 </div>
-                <input type="submit" value="Update Account Info" class="btn">
+                <div class="container d-flex justify-content-center">
+                    <input type="submit" value="Update Account Info" class="btn update_btn">
+                </div>
             </form>
             {% with messages = get_flashed_messages(category_filter=['update']) %}
             {% if messages %}
@@ -101,12 +103,12 @@
             {% endif %}
         {% endwith %}
         </div>
-        <div class="container">
+        <!-- <div class="container">
             <h3>Previous Orders:</h3>
             {% for order in all_orders %}
                 Method: {{order.method}}
             {% endfor %}
-        </div>
+        </div> -->
     </div>
 </body>
 </html>

@@ -95,6 +95,11 @@ def checkout():
         return redirect('/logout')
     return render_template('checkout.html', orders = order_model.Order.checkout(session['user_id']))
 
+@app.route('/delete')
+def delete():
+    order_model.Order.delete(session['user_id'])
+    return redirect('/order')
+
 @app.route('/logout')
 def logout():
     session.clear()
