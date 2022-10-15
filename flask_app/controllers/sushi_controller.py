@@ -97,7 +97,10 @@ def checkout():
 
 @app.route('/delete')
 def delete():
-    order_model.Order.delete(session['user_id'])
+    data = {
+        'id': session['user_id']
+    }
+    order_model.Order.delete(data)
     return redirect('/order')
 
 @app.route('/logout')
