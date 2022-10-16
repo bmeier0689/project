@@ -5,7 +5,7 @@ body {
 h1 {
     color: #afd77f;
 }
-#header {
+#header, a{
     align-items: center;
     font-weight: 600;
 }
