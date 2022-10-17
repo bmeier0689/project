@@ -2,7 +2,8 @@ Welcome to Obake Sushi! (Pronounced Oh-Ba-Ke, it means "Monster/Ghost" in Japane
 
 Here you will be able to create an account in order to order some MONSTROUSLY delicious sushi. 
 
-After creating an account or logging in, you will find a page where you can decide to create a new order, or use our "omakase" (recommendation) method based on our chef's pick of the day. (I'm toying around with the idea of these recommendations being randomly generated from a list. Or perhaps creating a dictionary with different fish/rice combo's for each day and having the order page populating from there depending on what day it is that the users access the site. But currently I'm not sure how to do that last part, so I need to look into it.)
+After creating an account or logging in, you will find a page where you can decide to create a new order, or use our "omakase" (recommendation) method based on our chef's pick of the day. (I'm toying around with the idea of these recommendations being randomly generated from a list. 
+Or perhaps creating a dictionary with different fish/rice combo's for each day and having the order page populating from there depending on what day it is that the users access the site. But currently I'm not sure how to do that last part, so I need to look into it.)
 
 The user will also be able to edit their account details in case they move or need to change their name for whatever reason. 
 
