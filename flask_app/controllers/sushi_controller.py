@@ -37,10 +37,10 @@ def login():
     user = user_model.User.check_email(request.form['email'])
     if user == False:
         flash("Please enter a valid email address and password", "login")
-        return redirect('/login_user')
+        return redirect('/login')
     if bcrypt.check_password_hash(user.password, request.form['password']) == False:
         flash("Password is incorrect, please try again", "login")
-        return redirect('/login_user')
+        return redirect('/login')
     else:
         if bcrypt.check_password_hash(user.password, request.form['password']) == True:
             session['user_id'] = user.id

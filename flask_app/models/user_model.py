@@ -90,8 +90,6 @@ class User:
     @staticmethod
     def validate_user_update(user):
         is_valid = True
-        query = "SELECT * FROM users WHERE email = %(email)s;"
-        results = connectToMySQL(db).query_db(query, user)
         if len(user['first_name']) == 0 or len(user['last_name']) == 0 or len(['email']) == 0 or len(user['address']) == 0 or \
         len(user['city']) == 0:
             flash("All fields required", "update")
@@ -99,5 +97,8 @@ class User:
             return is_valid
         if not NAME_REGEX.match(user['first_name']):
             flash("First name must be at least 2 characters and contain only letters", "update")
+            is_valid = False
+        if not NAME_REGEX.match(user['last_name']):
+            flash("Last name must be at least 2 characters and contain only letters", "update")
             is_valid = False
         return is_valid

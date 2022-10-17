@@ -12,7 +12,7 @@
 <body>
     <div id="header" class="container d-flex justify-content-between">
         <h1>Obake Sushi</h1>
-        <img src="/static/images/obake_tuna.png" class="img" alt="Obake Tuna" height="150px" width="150px">
+        <img src="/static/images/obake_tuna.png" class="img" alt="Obake Tuna" height="150" width="150">
         <div class="topnav">
             <a href="/home" class="active">Home</a> |
             <a href="/order">Order</a> |
@@ -38,6 +38,7 @@
                     <input type="text" name="city" value="{{user.city}}" class="form-control">
                     <label for="state">State:</label>
                     <select name="state" id="state" class="form-control">
+                        <option value="{{user.state}}" selected>{{user.state}}</option>
                         <option value="AL">Alabama (AL)</option>
                         <option value="AK">Alaska (AK)</option>
                         <option value="AZ">Arizona (AZ)</option>
@@ -103,7 +104,7 @@
             {% endif %}
         {% endwith %}
         </div>
-        <!-- <div class="container">
+        <!-- <div class="container"> add previous orders after updating to many-to-many relationships
             <h3>Previous Orders:</h3>
             {% for order in all_orders %}
                 Method: {{order.method}}

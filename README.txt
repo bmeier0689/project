@@ -9,3 +9,20 @@ The user will also be able to edit their account details in case they move or ne
 The order page will have several entry areas with dropdown boxes, where they can select their choice of fish, they rice that they would like, whether they would like wasabi on it, and the quantity of each item. It will also include a button to add more entries. 
 
 Lastly, the "Confirmation" page will show a detailed list of their items, as well as the quantity, and the price for each item. Then at the bottom it will give a total for all the items. There will also be buttons to cancel their order or go ahead and submit it. 
+
+(SUBMISSION UPDATE)
+I was over ambitious when planning this out, I didn't think about needing to use a many-to-many relationship until I was already well along with it, so concessions had to be made to make
+sure everything would work in regards to the requirements.
+
+Registering a new user and logging into an exsiting one both have validations in place. User must be logged in to view any of the routes within the app. 
+
+Home page allows for 2 different types of orders, however, at this time only the 'New Order' button works, will work on adding functionality to 'Omakase' later on. 
+
+Within the order page, currently there are 3 input boxes, with an option to add 3 more using JS with a hidden element. Currently the 3 hidden ones do not write to the DB nor get shown
+on the checkout page though, will work on getting this to work properly later.
+
+Checkout page displays the 3 most recent DB submissions (the users order) and allows the order to be canceled, thereby deleting the DB entries. No prices or total is shown due to needing
+to utilize the many-to-many process and creating a table for fish with all of their information, to come in the future.
+
+Accounts page allows you to view your account information and change your information, except password. This page has its own separate validation method but works basically the same as the 
+registration pages. 

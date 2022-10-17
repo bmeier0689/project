@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="/static/style.css">
-    <script defer src="/scripts/script.js" async></script>
+    <script src="/static/script.js"></script>
     <title>Order</title>
 </head>
 <body>
@@ -100,7 +100,9 @@
                     <label for="qty">Quantity:</label>
                     <input type="text" name="quantity">
                 </div>
-                <div class="container extra_form" style="display: none;">
+                <!-- this feature to add extra inputs to the form works, however they are not saved to the db nor represented currently
+                in the checkout menu due to how the query is run. will be fixed later once the many-to-many update is added-->
+                <div class="container" id="extra_form" style="display: none;">
                     <div>
                         <label for="fish">Choice of Fish:</label>
                         <select name="fish" id="fish">
